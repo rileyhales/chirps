@@ -10,8 +10,7 @@ import logging
 
 
 def download_chirps_gefs(threddspath):
-    # get the parts of the timestamp to put into the url
-
+    # get the parts of the timestamp to put into the urlr
     urlbase = 'https://data.chc.ucsb.edu/products/EWX/data/forecasts/CHIRPS-GEFS_precip/'
 
     startday = datetime.datetime.utcnow().strftime("%Y%m%d")

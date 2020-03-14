@@ -1,0 +1,8 @@
+name: chirpsworkflow
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pillow
+  - netcdf4
+  - numpy
