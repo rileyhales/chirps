@@ -13,10 +13,12 @@ def download_chirps_gefs(threddspath):
     # get the parts of the timestamp to put into the urlr
     urlbase = 'https://data.chc.ucsb.edu/products/EWX/data/forecasts/CHIRPS-GEFS_precip/'
 
-    startday = datetime.datetime.utcnow().strftime("%Y%m%d")
-    _5dayend = (datetime.datetime.utcnow() + datetime.timedelta(days=4)).strftime("%Y%m%d")
-    _10dayend = (datetime.datetime.utcnow() + datetime.timedelta(days=9)).strftime("%Y%m%d")
-    _15dayend = (datetime.datetime.utcnow() + datetime.timedelta(days=14)).strftime("%Y%m%d")
+    # startday = datetime.datetime.utcnow().strftime("%Y%m%d")
+    start = datetime.date(year=2020, month=2, day=13)
+    startday = start.strftime('%Y%m%d')
+    _5dayend = (start + datetime.timedelta(days=4)).strftime("%Y%m%d")
+    _10dayend = (start + datetime.timedelta(days=9)).strftime("%Y%m%d")
+    _15dayend = (start + datetime.timedelta(days=14)).strftime("%Y%m%d")
 
     files_to_download = [
         '05day/precip_mean/data-mean_' + startday + '_' + _5dayend + '.tif',

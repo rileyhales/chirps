@@ -2,6 +2,8 @@ from tethys_sdk.permissions import login_required
 from django.shortcuts import render
 from tethys_sdk.gizmos import SelectInput, RangeSlider
 
+import json
+
 from .utilities import get_forecast_netcdf_names
 from .app import Chirps as App
 
@@ -52,7 +54,7 @@ def home(request):
         'chirpsproducts': chirpsproducts,
         'colorscheme': colorscheme,
         'opacity_raster': opacity_raster,
-        'filenames': get_forecast_netcdf_names(),
+        'filenames': json.dumps(get_forecast_netcdf_names()),
         'thredds_url': App.get_custom_setting('thredds_url'),
     }
 

@@ -21,8 +21,7 @@ function basemaps() {
 
 ////////////////////////////////////////////////////////////////////////  WMS LAYERS FOR PRECIPITATION FORECASTS
 function newChirpsGEFS() {
-    let productvariable = $("#chirpsproducts").val().split('_');
-    let wmsurl = thredds_url + '/chirpsgefs_20200213.nc4';
+    let wmsurl = thredds_url + '';
     return L.tileLayer.wms(wmsurl, {
         layers: productvariable[1],
         useCache: true,

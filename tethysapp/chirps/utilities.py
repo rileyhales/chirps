@@ -5,7 +5,7 @@ from .app import Chirps as App
 
 def get_forecast_netcdf_names():
     threddspath = App.get_custom_setting('thredds_path')
-    netcdfs = glob.glob(os.path.join(threddspath, '*.n4'))
+    netcdfs = glob.glob(os.path.join(threddspath, '*.nc4'))
 
     reference = {}
     for nc in netcdfs:
