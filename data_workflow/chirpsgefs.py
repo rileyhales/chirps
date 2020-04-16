@@ -13,10 +13,11 @@ def download_chirps_gefs(threddspath):
     # get the parts of the timestamp to put into the urlr
     urlbase = 'https://data.chc.ucsb.edu/products/EWX/data/forecasts/CHIRPS-GEFS_precip/'
 
-    startday = datetime.datetime.utcnow().strftime("%Y%m%d")
-    _5dayend = (datetime.datetime.utcnow() + datetime.timedelta(days=4)).strftime("%Y%m%d")
-    _10dayend = (datetime.datetime.utcnow() + datetime.timedelta(days=9)).strftime("%Y%m%d")
-    _15dayend = (datetime.datetime.utcnow() + datetime.timedelta(days=14)).strftime("%Y%m%d")
+    start = datetime.date(year=2020, month=2, day=13)
+    startday = '20200213'
+    _5dayend = (start + datetime.timedelta(days=4)).strftime("%Y%m%d")
+    _10dayend = (start + datetime.timedelta(days=9)).strftime("%Y%m%d")
+    _15dayend = (start + datetime.timedelta(days=14)).strftime("%Y%m%d")
 
     files_to_download = [
         '05day/precip_mean/data-mean_' + startday + '_' + _5dayend + '.tif',
@@ -27,7 +28,8 @@ def download_chirps_gefs(threddspath):
     for file in files_to_download:
         url = urlbase + file
         filename = os.path.basename(file)
-        filepath = os.path.join(threddspath, os.path.split(os.path.split(file)[0])[0] + '_' + filename)
+        # filepath = os.path.join(threddspath, os.path.split(os.path.split(file)[0])[0] + '_' + filename)
+        filepath = os.path.join(threddspath, 'chirpsgefs_20200213.nc4')
 
         logging.info('Downloading- ' + file)
         try:
